@@ -16,7 +16,13 @@ const Navbar = (props) => {
         </div>
 
         <div className="toggle-container">
-          <div className="toggle"></div>
+          <div className="toggle">
+            {navState ? (
+              <MdClose onClick={() => setNewState(false)} />
+            ) : (
+              <GiHamburgerMenu onClick={() => setNewState(true)} />
+            )}
+          </div>
           <div className="mode">
             {props.currentTheme === "dark" ? (
               <ImSun className="light" />
@@ -26,7 +32,7 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-      <div className="links-container">
+      <div className={`links-container ${navState ? "nav-visible" : ""}`}>
         <ul className="links">
           <li>
             <a href="">Features</a>
