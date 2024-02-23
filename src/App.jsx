@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Clients from "./Components/Clients";
 import Footer from "./Components/Footer";
 import FreeNft from "./Components/FreeNft";
@@ -12,6 +12,10 @@ import SuperRare from "./Components/SuperRare";
 import "./scss/index.scss";
 import ScrollReveal from "scrollreveal";
 function App() {
+  const [theme, setTheme] = useState("dark");
+  const changeTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
   useEffect(() => {
     const registerAnimations = () => {
       const sr = ScrollReveal({
@@ -22,8 +26,19 @@ function App() {
       });
       sr.reveal(
         `
-      nav,.home,.free,.clients,.super-rare,.releases,.like,.signup,footer`,
-        { interval: 500 }
+        nav,
+        .home,
+        .free,
+        .clients,
+        .super-rare,
+        .releases,
+        .like,
+        .signup,
+        footer
+    `,
+        {
+          interval: 500,
+        }
       );
     };
     registerAnimations();
@@ -31,13 +46,13 @@ function App() {
   window.setTimeout(() => {
     const home = document.getElementsByClassName("home");
     home[0].style.transform = "none";
-    const nav = document.getElementsByName("nav");
+    const nav = document.getElementsByTagName("nav");
     nav[0].style.transform = "none";
   }, 1500);
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme={theme}>
       <ScrollToTop />
-      <Navbar />
+      <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <Home />
       <FreeNft />
       <Clients />

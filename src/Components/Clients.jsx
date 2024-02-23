@@ -7,7 +7,7 @@ import clients5 from "../Assets/clients5.png";
 
 const Clients = () => {
   const data = [clients1, clients2, clients3, clients4, clients5];
-  console.log(data);
+
   return (
     <div className="clients">
       <div className="container">

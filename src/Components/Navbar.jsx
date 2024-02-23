@@ -6,7 +6,7 @@ import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../Assets/logo.png";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [navState, setNewState] = useState(false);
   return (
     <nav>
@@ -17,7 +17,13 @@ const Navbar = () => {
 
         <div className="toggle-container">
           <div className="toggle"></div>
-          <div className="mode"></div>
+          <div className="mode">
+            {props.currentTheme === "dark" ? (
+              <ImSun className="light" />
+            ) : (
+              <BsFillMoonFill className="dark" />
+            )}
+          </div>
         </div>
       </div>
       <div className="links-container">
@@ -33,6 +39,13 @@ const Navbar = () => {
           </li>
           <li>
             <a href="">Sign up</a>
+          </li>
+          <li onClick={props.changeTheme}>
+            {props.currentTheme === "dark" ? (
+              <ImSun className="light" />
+            ) : (
+              <BsFillMoonFill className="dark" />
+            )}
           </li>
         </ul>
       </div>
