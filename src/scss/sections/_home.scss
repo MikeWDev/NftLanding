@@ -80,7 +80,7 @@
       grid-template-columns: 0.7fr;
       .image-container {
         position: absolute;
-        right: -10%;
+        right: 5%;
         top: 30%;
         .image {
           img {
@@ -100,6 +100,15 @@
             left: -5%;
           }
         }
+      }
+    }
+  }
+}
+@media (max-width: 480px) {
+  .home {
+    .container {
+      .image-container {
+        right: 0%;
       }
     }
   }

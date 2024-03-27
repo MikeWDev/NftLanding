@@ -102,8 +102,16 @@
     .cards {
       .card1,
       .card2 {
-        zoom: 0.3;
+        zoom: 0.8;
       }
+    }
+  }
+}
+@media (max-width: 770px) {
+  .cards {
+    .card1,
+    .card2 {
+      zoom: 0.42 !important;
     }
   }
 }

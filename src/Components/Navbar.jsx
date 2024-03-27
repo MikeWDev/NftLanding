@@ -18,16 +18,16 @@ const Navbar = (props) => {
         <div className="toggle-container">
           <div className="toggle">
             {navState ? (
-              <MdClose onClick={() => setNewState(false)} />
+              <MdClose size={32} onClick={() => setNewState(false)} />
             ) : (
-              <GiHamburgerMenu onClick={() => setNewState(true)} />
+              <GiHamburgerMenu size={32} onClick={() => setNewState(true)} />
             )}
           </div>
-          <div className="mode">
+          <div className="mode" onClick={props.changeTheme}>
             {props.currentTheme === "dark" ? (
-              <ImSun className="light" />
+              <ImSun size={32} className="light" />
             ) : (
-              <BsFillMoonFill className="dark" />
+              <BsFillMoonFill size={32} className="dark" />
             )}
           </div>
         </div>
@@ -48,9 +48,9 @@ const Navbar = (props) => {
           </li>
           <li onClick={props.changeTheme}>
             {props.currentTheme === "dark" ? (
-              <ImSun className="light" />
+              <ImSun size={32} className="light" />
             ) : (
-              <BsFillMoonFill className="dark" />
+              <BsFillMoonFill size={32} className="dark" />
             )}
           </li>
         </ul>
